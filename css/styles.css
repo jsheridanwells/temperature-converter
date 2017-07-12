@@ -1,0 +1,51 @@
+* {
+	font-family: Arial;
+	color: #333;
+}
+
+body {
+	display: flex;
+	background-color: #000
+}
+
+.container {
+	background-color: #fff;
+	width: 80%;
+	margin: 1em auto;
+	padding: 5em;
+	border: 1px solid #000;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+form, .out-box {
+	margin-left: 30%;
+}
+
+label, p {
+	font-size: 1.8em;
+}
+
+input {
+	height: 30px;
+	font-size: 1.8em
+}
+.out-box {
+
+}
+.out-box p {
+	margin-left: 20%;
+	font-size: 3em;
+	font-weight: bold;
+	color: green;
+}
+
+p.hot {
+	color: red;
+}
+
+p.cold {
+	color: blue;
+}
