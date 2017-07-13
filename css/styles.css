@@ -39,6 +39,9 @@ input {
 	margin-left: 20%;
 	font-size: 3em;
 	font-weight: bold;
+}
+
+p.normal {
 	color: green;
 }
 
