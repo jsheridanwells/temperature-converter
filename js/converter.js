@@ -65,10 +65,11 @@ sub.addEventListener('click', function(){
 	changeOutputColor(outTemp, outScale)
 });
 
-//capture enter key up  NOT WORKING???
-sub.addEventListener('keyup', function(event){
+//capture enter key up
+document.addEventListener('keyup', function(event){
 	if (event.which === 13) {
 		getInput();
 		showTemp(convert(inTemp, celsCheck), outScale);
+		changeOutputColor(outTemp, outScale)
 	}
 });
