@@ -37,24 +37,38 @@ function showTemp(temp, scale) {
 	outBox.innerHTML = `${temp} &deg; ${scale}`;
 }
 
+// change output color depending on temperature
+function changeOutputColor(temp, scale) {
+	if (scale === 'C') {
+		if (temp >= 32) {
+			outBox.setAttribute('class', 'hot');
+		} else if (temp <= 0){
+			outBox.setAttribute('class', 'cold');
+		} else {
+			outBox.setAttribute('class', 'normal');
+		}
+	} else {
+		if (temp >= 90) {
+			outBox.setAttribute('class', 'hot');
+		} else if (temp <= 32) {
+			outBox.setAttribute('class', 'cold');
+		} else {
+			outBox.setAttribute('class', 'normal');
+		}
+	}
+}
+
 //capture button click or...
 sub.addEventListener('click', function(){
 	getInput();
 	showTemp(convert(inTemp, celsCheck), outScale);
+	changeOutputColor(outTemp, outScale)
 });
 
 //capture enter key up  NOT WORKING???
-// sub.addEventListener('keyup', function(event){
-// 	if (event.which === 13) {
-// 		getInput();
-// 		showTemp(convert(inTemp, celsCheck), outScale);
-// 	}
-// });
-
-//if temperature is greater than 90/32
-
-//give p class of hot
-
-//if temperature is less than 32/0
-
-//give p class of cold
+sub.addEventListener('keyup', function(event){
+	if (event.which === 13) {
+		getInput();
+		showTemp(convert(inTemp, celsCheck), outScale);
+	}
+});
