@@ -2,7 +2,7 @@
 const input = document.getElementById('input');
 const celsRadio = document.getElementById('celsius');
 const fahrRadio = document.getElementById('fahrenheit');
-const submit = document.getElementById('submit-button');
+const sub = document.getElementById('submit-button');
 const outBox = document.getElementById('output');
 
 let inTemp = 0;
@@ -13,7 +13,7 @@ let outTemp = 0;
 //capture temperature input
 //capture radio button selection
 function getInput() {
-	inTemp = input.value;
+	inTemp = Number(input.value);
 	celsCheck = celsRadio.checked;
 	if (celsCheck) {
 		outScale = 'C';
@@ -25,9 +25,9 @@ function getInput() {
 //perform conversion
 function convert(temp, scale) {
 	if (scale) {
-		outTemp = ((temp -32) *5) / 9
+		outTemp = (((temp -32) *5) / 9).toFixed(0);
 	} else {
-		outTemp = ((temp * 9 )/ 5) + 32
+		outTemp = (((temp * 9 )/ 5) + 32).toFixed(0);
 	}
 	return outTemp;
 }
@@ -38,16 +38,18 @@ function showTemp(temp, scale) {
 }
 
 //capture button click or...
-submit.addEventListener('click', function() {
+sub.addEventListener('click', function(){
 	getInput();
-	showTemp(convert(inTemp , celsCheck) , outScale);
+	showTemp(convert(inTemp, celsCheck), outScale);
 });
 
-//STATUS:  CONVERSIONS WORK, DISPLAYS RESULT FOR A SECOND
-//THEN REMOVES DISPLAY
-
-
-//capture enter key up
+//capture enter key up  NOT WORKING???
+// sub.addEventListener('keyup', function(event){
+// 	if (event.which === 13) {
+// 		getInput();
+// 		showTemp(convert(inTemp, celsCheck), outScale);
+// 	}
+// });
 
 //if temperature is greater than 90/32
 
